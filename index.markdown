@@ -6,7 +6,7 @@ description: Composer‑Style Symbolic Music Generation via Large‑Scale Pre‑
 
 # Overview  
 
-**GnM (Generality → Mastery)** is a two‑stage Transformer framework for symbolic music generation that first **learns general musical knowledge** from a large multi‑genre corpus and then **specialises** in the idiom of four classical composers (Bach, Mozart, Beethoven, Chopin).  
+**GnM (Generality → Mastery)** is a two‑stage Transformer framework for symbolic music generation that first **learns general musical knowledge** from a large multi‑genre corpus and then **specialises** in the domain of four classical composers (Bach, Mozart, Beethoven, Chopin).  
 
 <div align="center">
   <img src="figures/architecture.png" width="800" alt="">
@@ -27,11 +27,12 @@ description: Composer‑Style Symbolic Music Generation via Large‑Scale Pre‑
 
 3. **Data Efficiency**  
    GnM reaches or surpasses state‑of‑the‑art quality with **46M parameters** after introducing adapters, much smaller than comparable ABC‑notation models.  
+
 ---
 
 # Method  
 
-### 1&nbsp;┇ Extended REMI  
+## Extended REMI  
 
 | Aspect | Original REMI | **Extended REMI (ours)** |
 | ------ | ------------- | ------------------------ |
@@ -40,14 +41,16 @@ description: Composer‑Style Symbolic Music Generation via Large‑Scale Pre‑
 | Global tokens | Tempo | Tempo **+ Composer** |
 
 **Time‑Signature Events**
+
 Each bar opens with `[TS:<meter>]`. Irregular metres (e.g., 5/4) are decomposed (2/4 + 3/4) to retain bar integrity.
 
 **High‑Resolution Grids**
+
 Quarter‑note metres use 12 ticks/beat.
 Eighth‑note metres use 6. 
 Example: 4/4 → 48 grids/bar.
 
-### 2&nbsp;┇ Two‑Stage Training
+## Two‑Stage Training
 
 | Stage | Corpus / Pieces | Objective | Conditioning |
 |-------|-----------------|-----------|--------------|
