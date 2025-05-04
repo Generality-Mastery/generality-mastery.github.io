@@ -26,8 +26,8 @@ The extension of REMI are mainly adding explicit time-signature tokens and by in
   - **4/4** → 12 grids per quarter note → **48** grids/bar  
   - **3/4** → 12 grids per quarter note → **36** grids/bar  
   - **2/4** → 12 grids per quarter note → **24** grids/bar  
-  - **$\frac{6}/{8}$** → 6 grids per eighth note → **36** grids/bar  
-  - **$\frac{3}/{8}$** → 6 grids per eighth note → **18** grids/bar  
+  - **$\frac{6}{8}$** → 6 grids per eighth note → **36** grids/bar  
+  - **$\frac{3}{8}$** → 6 grids per eighth note → **18** grids/bar  
 
 By making both the time signature and an appropriately large number of rhythmic “ticks” explicit, our representation captures fine‐grained rhythmic structure in any time signature, unlike the original REMI’s fixed 16‐step \frac{44} grid.
 
