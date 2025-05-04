@@ -19,17 +19,17 @@ To better represent the composer’s style, we extend the original [REMI](https:
 The extension of REMI are mainly adding explicit time-signature tokens and by increasing the grid (beat‑token) resolution per bar, so that our model can receive complete information. Concretely:
 
 - **Time‑Signature Events**  
-  We support five common time signatures, $\frac{2}{4}$, $\frac{3}{4}$, $\frac{4}{4}$, $\frac{3}{8}$, $\frac{6}{8}$ and convert all others into these (e.g. $\frac{5}{4}$ → $\frac{2}{4}$ + $\frac{3}{4}$; $\frac{12}{8}$→ two $\frac{6}{8}$ bars). Each bar begins with a `[TS]` token indicating its current time signature.
+  We support five common time signatures, 2/4, 3/4, 4/4, 3/8, 6/8 and convert all others into these (e.g. 5/4 → 2/4 + 3/4; 12/8 → two 6/8 bars). Each bar begins with a `[TS]` token indicating its current time signature.
 
 - **High‑Resolution Beat Grids**  
   Within each bar, we emit a fixed number of `[G]` tokens (“grids”) based on the meter’s note‐value subdivisions:  
-  - **\frac{4}{4}** → 12 grids per quarter note → **48** grids/bar  
-  - **\frac{3}{4}** → 12 grids per quarter note → **36** grids/bar  
-  - **\frac{2}{4}** → 12 grids per quarter note → **24** grids/bar  
-  - **\frac{6}{8}** → 6 grids per eighth note → **36** grids/bar  
-  - **\frac{3}{8}** → 6 grids per eighth note → **18** grids/bar  
+  - **4/4** → 12 grids per quarter note → **48** grids/bar  
+  - **3/4** → 12 grids per quarter note → **36** grids/bar  
+  - **2/4** → 12 grids per quarter note → **24** grids/bar  
+  - **$\frac{6/8}$** → 6 grids per eighth note → **36** grids/bar  
+  - **$\frac{3/8}$** → 6 grids per eighth note → **18** grids/bar  
 
-By making both the time signature and an appropriately large number of rhythmic “ticks” explicit, our representation captures fine‐grained rhythmic structure in any time signature, unlike the original REMI’s fixed 16‐step \frac{4}{4} grid.
+By making both the time signature and an appropriately large number of rhythmic “ticks” explicit, our representation captures fine‐grained rhythmic structure in any time signature, unlike the original REMI’s fixed 16‐step \frac{44} grid.
 
 We follow typical [NLP](https://arxiv.org/abs/1902.00751) practice when designing adapter modules in the mastery stage. The module concatenates the composer embedding with the hidden state of the layer, feeds the result through a two-layer MLP (with a GELU nonlinearity) to learn a style bias, and project it back to the original hidden-state dimension. A residual connection around this MLP stabilizes training.
 
@@ -43,15 +43,15 @@ Our experiment indicates the effectiveness of our pipeline and extended data rep
 Results on the objective metrics with our *GnM*, *GnM* (no pre-training),  *GnM* (no fine-tuning), REMI, [Emo-Disentanger](https://github.com/Yuer867/EMO-Disentanger), and Notagen are presented below:
 
 <div align="center">
-  <img src="figures/obj_music.jpeg" width=900 alt="">
+  <img src="figures/obj_music.jpeg" width=800 alt="">
   <figcaption><strong>Fig.3</strong> The objective evaluation results among different music generation models and our ablations</figcaption>
 </div>
 
 The objective classification results on three composer-conditioned generation models, *GnM* (Mastery), *GnM* (no pre-training, or from scratch) and Notagen are also presented. Other models are excluded because they cannot generate music with specific composer styles.
 
 <div align="center">
-  <img src="figures/obj_composer.jpeg" width=800 alt="">
-  <figcaption><strong>Fig.4</strong> The composer classification accuracy on the *GnM* model without the fine-tuning stage (as Scratch), fine-tuned NotaGen, and the final *GnM* model (as Mastery).</figcaption>
+  <img src="figures/obj_composer.jpeg" width=900 alt="">
+  <figcaption><strong>Fig.4</strong> The composer classification accuracy on the *GnM* model without the fine-tuning stage (as Scratch), fine-tuned NotaGen, and the final GnM model (as Mastery).</figcaption>
 </div>
 
 Additionally, the subjective surveys on the overall music quality and composer style similarities are below:
@@ -61,7 +61,7 @@ Additionally, the subjective surveys on the overall music quality and composer s
 </div>
 
 <div align="center">
-  <img src="figures/sub_composer.jpeg" width=800 alt="">
+  <img src="figures/sub_composer.jpeg" width=900 alt="">
   <figcaption><strong>Fig.6</strong> The composer style assessment from the subjective listening test. We only evaluate these three composer-conditionable models as the same in objective composer evaluation. </figcaption>
 </div>
 
@@ -70,6 +70,7 @@ We show some generation samples from *GnM* (Mastery), [Notagen-finetuned](https:
 
 
 ## GnM (Mastery) Model by Composer
+
 <table class="audio-table">
   <thead>
     <tr class="header">
@@ -145,6 +146,7 @@ We show some generation samples from *GnM* (Mastery), [Notagen-finetuned](https:
 
 
 ## Notagen-finetuned Model by Composer
+
 <table class="audio-table">
   <thead>
     <tr class="header">
@@ -220,6 +222,7 @@ We show some generation samples from *GnM* (Mastery), [Notagen-finetuned](https:
 
 
 ## GnM Scratch Model (Ablation) by Composer
+
 <table class="audio-table">
   <thead>
     <tr class="header">
@@ -264,6 +267,7 @@ We show some generation samples from *GnM* (Mastery), [Notagen-finetuned](https:
 </table>
 
 ## GnM (Pre-training Only), No Composer
+
 <table class="audio-table">
   <tbody>
     <tr>
