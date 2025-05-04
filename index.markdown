@@ -87,64 +87,64 @@ It was found that our **GnM (Mastery)** model is able to produce music with high
   </thead>
   <tbody>
     <tr>
-      <td><audio controls=""><source src="assets/demos/mastery/Bach/1.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Beethoven/1.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Chopin/1.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Mozart/1.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Bach/1.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Beethoven/1.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Chopin/1.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Mozart/1.wav" type="audio/mpeg" /></audio></td>
     </tr>
     <tr>
-      <td><audio controls=""><source src="assets/demos/mastery/Bach/2.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Beethoven/2.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Chopin/2.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Mozart/2.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Bach/2.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Beethoven/2.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Chopin/2.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Mozart/2.wav" type="audio/mpeg" /></audio></td>
     </tr>
     <tr>
-      <td><audio controls=""><source src="assets/demos/mastery/Bach/3.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Beethoven/3.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Chopin/3.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Mozart/3.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Bach/3.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Beethoven/3.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Chopin/3.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Mozart/3.wav" type="audio/mpeg" /></audio></td>
     </tr>
     <tr>
-      <td><audio controls=""><source src="assets/demos/mastery/Bach/4.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Beethoven/4.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Chopin/4.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Mozart/4.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Bach/4.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Beethoven/4.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Chopin/4.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Mozart/4.wav" type="audio/mpeg" /></audio></td>
     </tr>
     <tr>
-      <td><audio controls=""><source src="assets/demos/mastery/Bach/5.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Beethoven/5.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Chopin/5.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Mozart/5.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Bach/5.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Beethoven/5.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Chopin/5.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Mozart/5.wav" type="audio/mpeg" /></audio></td>
     </tr>
     <tr>
-      <td><audio controls=""><source src="assets/demos/mastery/Bach/6.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Beethoven/6.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Chopin/6.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Mozart/6.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Bach/6.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Beethoven/6.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Chopin/6.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Mozart/6.wav" type="audio/mpeg" /></audio></td>
     </tr>
     <tr>
-      <td><audio controls=""><source src="assets/demos/mastery/Bach/7.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Beethoven/7.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Chopin/7.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Mozart/7.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Bach/7.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Beethoven/7.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Chopin/7.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Mozart/7.wav" type="audio/mpeg" /></audio></td>
     </tr>
     <tr>
-      <td><audio controls=""><source src="assets/demos/mastery/Bach/8.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Beethoven/8.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Chopin/8.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Mozart/8.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Bach/8.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Beethoven/8.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Chopin/8.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Mozart/8.wav" type="audio/mpeg" /></audio></td>
     </tr>
     <tr>
-      <td><audio controls=""><source src="assets/demos/mastery/Bach/9.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Beethoven/9.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Chopin/9.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Mozart/9.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Bach/9.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Beethoven/9.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Chopin/9.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Mozart/9.wav" type="audio/mpeg" /></audio></td>
     </tr>
     <tr>
-      <td><audio controls=""><source src="assets/demos/mastery/Bach/10.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Beethoven/10.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Chopin/10.wav" type="audio/mpeg" /></audio></td>
-      <td><audio controls=""><source src="assets/demos/mastery/Mozart/10.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Bach/10.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Beethoven/10.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Chopin/10.wav" type="audio/mpeg" /></audio></td>
+      <td><audio controls=""><source src="assets/demos/Mastery/Mozart/10.wav" type="audio/mpeg" /></audio></td>
     </tr>
   </tbody>
 </table>
@@ -273,7 +273,6 @@ It was found that our **GnM (Mastery)** model is able to produce music with high
   </tbody>
 </table>
 
-<br><br>
 
 ## GnM (Pre-training Only), No Composer
 This section shows generated music by GnM with only pre-training. We found the diversity of music learned from multi-genre training data.
