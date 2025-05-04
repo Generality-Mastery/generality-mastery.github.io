@@ -66,8 +66,13 @@ Additionally, the subjective surveys on the overall music quality and composer s
 </div>
 
 # Generation Samples
-We show some generation samples from *GnM* (Mastery), [Notagen-finetuned](https://huggingface.co/ElectricAlexis/NotaGen/blob/main/weights_notagen_pretrain-finetune_p_size_16_p_length_1024_p_layers_c_layers_6_20_h_size_1280_lr_1e-05_batch_1.pth), and *GnM* (from scratch) for comparison on the music generation quality and their style similarities compared with the actual conditions.
+We show some generation samples from multiple models for comparison on the music generation quality and their style similarities compared with the actual conditions:
 
+- **GnM (Mastery)**: Generality-to-mastery two-stage generation model with extended REMI representation
+- **[Notagen-finetuned](https://huggingface.co/ElectricAlexis/NotaGen/blob/main/weights_notagen_pretrain-finetune_p_size_16_p_length_1024_p_layers_c_layers_6_20_h_size_1280_lr_1e-05_batch_1.pth)**: Same period ABC-notation-based generation model, baseline
+- **GnM (from scratch)**: Generality-to-mastery one-stage generation model with extended REMI representation (Train with fine-tuned dataset from scratch)
+
+It was found that our **GnM (Mastery)** model is able to produce music with high musicality and strong composer style similarity with given conditions.
 
 ## GnM (Mastery) Model by Composer
 
@@ -271,6 +276,7 @@ We show some generation samples from *GnM* (Mastery), [Notagen-finetuned](https:
 <br><br>
 
 ## GnM (Pre-training Only), No Composer
+This section shows generated music by GnM with only pre-training. We found the diversity of music learned from multi-genre training data.
 
 <table class="audio-table">
   <tbody>
