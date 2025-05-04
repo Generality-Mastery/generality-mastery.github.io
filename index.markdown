@@ -1,69 +1,101 @@
 ---
 layout: home
 title: From Generality to Mastery
-description: Composer-Style Symbolic Music Generation via Large-Scale Pre-training
+description: Composer‑Style Symbolic Music Generation via Large‑Scale Pre‑training
 ---
 
-# Introduction
+# Overview  
 
-In this paper, we introduce **GnM (Generality & Mastery)**, a two-stage Transformer-based model for composer-style symbolic music generation, and explore its effectiveness in musicality, composer style similarity and characteristic on music theory. The first stage focuses on **generality**, learning rich and diverse genres of music progressions, while the second stage leads to the style capturing, achieving **mastery** in specific composers' style.
-
-<div align="center">
-  <img src="figures/architecture.png" width=800 alt="">
-  <figcaption><strong>Fig.1</strong> Overview of the proposed model GnM (Generality and Mastery) for data-efficient
-composer-style symbolic music generation</figcaption>
-</div>
-
-To better represent the composer’s style, we extend the original [REMI](https://github.com/YatingMusic/remi) representation to support all common time signatures and adjust its resolutions. Then we introduce adapter modules to embed composer conditions during the generation process.
-
-The extension of REMI are mainly adding explicit **time-signature** tokens and by increasing the **grid (beat‑token)** resolution per bar, so that our model can receive complete information. Concretely:
-
-- **Time‑Signature Events**  
-  We support five common time signatures, 2/4, 3/4, 4/4, 3/8, 6/8 and convert all others into these (e.g. 5/4 → 2/4 + 3/4; 12/8 → two 6/8 bars). Each bar begins with a `[TS]` token indicating its current time signature.
-
-- **High‑Resolution Beat Grids**  
-  Within each bar, we emit a fixed number of `[G]` tokens (“grids”) based on the meter’s note‐value subdivisions:  
-  - **4/4** → 12 grids per quarter note → **48** grids/bar  
-  - **3/4** → 12 grids per quarter note → **36** grids/bar  
-  - **2/4** → 12 grids per quarter note → **24** grids/bar  
-  - **6/8** → 6 grids per eighth note → **36** grids/bar  
-  - **3/8** → 6 grids per eighth note → **18** grids/bar  
-
-By making both the time signature and an appropriately large number of rhythmic “ticks” explicit, our representation captures fine‐grained rhythmic structure in any time signature, unlike the original REMI’s fixed 16‐step 4/4 grid.
-
-We follow typical [NLP](https://arxiv.org/abs/1902.00751) practice when designing adapter modules in the mastery stage. The module concatenates the composer embedding with the hidden state of the layer, feeds the result through a two-layer MLP (with a GELU nonlinearity) to learn a style bias, and project it back to the original hidden-state dimension. A residual connection around this MLP stabilizes training.
+**GnM (Generality → Mastery)** is a two‑stage Transformer framework for symbolic music generation that first **learns general musical knowledge** from a large multi‑genre corpus and then **specialises** in the idiom of four classical composers (Bach, Mozart, Beethoven, Chopin).  
 
 <div align="center">
-  <img src="figures/adapter.jpeg" width=400 alt="">
-  <figcaption><strong>Fig.2</strong> The architecture of the style adapter</figcaption>
+  <img src="figures/architecture.png" width="800" alt="">
+  <figcaption><strong>Fig.&nbsp;1</strong> Pipeline of the proposed GnM model.</figcaption>
 </div>
 
-Our experiment indicates the effectiveness of our pipeline and extended data representation on both improving musicality and capturing composer's style. Further, on some objective metrics on generated music samples, our model also reaches comparable performance compared with same-period [NotaGen](https://github.com/ElectricAlexis/NotaGen) but with much less data and model capacity.
+---
 
-Results on the objective metrics with our *GnM*, *GnM* (no pre-training),  *GnM* (no fine-tuning), REMI, [Emo-Disentanger](https://github.com/Yuer867/EMO-Disentanger), and Notagen-finetuned are presented below:
+## Key Contributions  
+
+1. **Two‑Stage Training Paradigm**  
+   **Stage 1 – Generality:** pre‑train on 1.3 M bars from pop, folk, and classical scores to learn broad melodic, harmonic, and rhythmic patterns.  
+   **Stage 2 – Mastery:** fine‑tune with lightweight adapter modules on < 1k verified scores from four target composers, conditioning generation on a composer token.
+
+2. **Extended REMI Representation**  
+   * New `[TS]` tokens cover 2/4, 3/4, 4/4, 3/8, 6/8 (other metres are mapped by simple rules).  
+   * High‑resolution beat grids (up to 48 ticks per bar) preserve fine rhythmic nuance in every meter.
+
+3. **Data Efficiency**  
+   GnM reaches or surpasses state‑of‑the‑art quality with **46M parameters** after introducing adapters, much smaller than comparable ABC‑notation models.  
+---
+
+# Method  
+
+### 1&nbsp;┇ Extended REMI  
+
+| Aspect | Original REMI | **Extended REMI (ours)** |
+| ------ | ------------- | ------------------------ |
+| Time signature | Fixed 4/4 | Five common metres + mapping rules |
+| Beat resolution | 16/bar | 18–48 grids/bar (meter‑dependent) |
+| Global tokens | Tempo | Tempo **+ Composer** |
+
+**Time‑Signature Events**
+Each bar opens with `[TS:<meter>]`. Irregular metres (e.g., 5/4) are decomposed (2/4 + 3/4) to retain bar integrity.
+
+**High‑Resolution Grids**
+Quarter‑note metres use 12 ticks/beat.
+Eighth‑note metres use 6. 
+Example: 4/4 → 48 grids/bar.
+
+### 2&nbsp;┇ Two‑Stage Training
+
+| Stage | Corpus / Pieces | Objective | Conditioning |
+|-------|-----------------|-----------|--------------|
+| Generality | 64.8 M tokens (pop + folk + classical) | Next‑token | `[Tempo]` |
+| Mastery | 891 unique pieces (4 composers) | Next‑token | `[ComposerName]` + `[Tempo]` |
+
+**Style Adapter** (inserted every other decoder layer)
+
+Concatenates composer embedding with hidden state → 2‑layer MLP (GELU) → projection back → residual add (Fig.&nbsp;2).
 
 <div align="center">
-  <img src="figures/obj_music.jpeg" width=800 alt="">
-  <figcaption><strong>Fig.3</strong> The objective evaluation results among different music generation models and our ablations</figcaption>
+  <img src="figures/adapter.jpeg" width="400" alt="">
+  <figcaption><strong>Fig.&nbsp;2</strong> Style adapter for composer conditioning.</figcaption>
 </div>
 
-The objective classification results on three composer-conditioned generation models, *GnM* (Mastery), *GnM* (no pre-training, or from scratch) and Notagen-finetuned are also presented. Other models are excluded because they cannot generate music with specific composer styles.
+---
+
+# Results  
 
 <div align="center">
-  <img src="figures/obj_composer.jpeg" width=950 alt="">
-  <figcaption><strong>Fig.4</strong> The composer classification accuracy on the GnM model without the fine-tuning stage (as Scratch), fine-tuned NotaGen, and the final GnM model (as Mastery).</figcaption>
+  <img src="figures/obj_music.jpeg" width="800" alt="">
+  <figcaption><strong>Fig.&nbsp;3</strong> Objective musical‑quality metrics (higher is better except entropy).</figcaption>
+</div>
+From the table, we found that
+
+* **Musicality** – GnM reaches top pitch‑class entropy and grooves while maintaining competitive long‑term structure, comparable with same-period [Notagen-finetuned](https://github.com/ElectricAlexis/NotaGen)
+* **Ablations** – Removing the pre‑training stage would inflate repetition in generated music
+
+<div align="center">
+  <img src="figures/obj_composer.jpeg" width="950" alt="">
+  <figcaption><strong>Fig.&nbsp;4</strong> Composer‑classifier accuracy (higher = closer to target style).</figcaption>
 </div>
 
-Additionally, the subjective surveys on the overall music quality and composer style similarities are below:
+*GnM Mastery* exceeds NotaGen on Mozart & Beethoven, and matches on Bach & Chopin.
+
 <div align="center">
-  <img src="figures/sub_music.jpeg" width=600 alt="">
-  <figcaption><strong>Fig.5</strong> The musicality rating scores from the subjective listening test. We report the mean value, standard deviation (STD), standard error (SE), and 95% Confidence Interval (CI).</figcaption>
+  <img src="figures/sub_music.jpeg" width="600" alt="">
+  <figcaption><strong>Fig.&nbsp;5</strong> Mean listener musicality ratings (1 – 5) with 95 % CI.</figcaption>
 </div>
-<br><br>
+
+GnM (pre-training and mastery models) achieves the highest perceived musicality; listeners also distinguish its stylistic features better than the Notagen and our ablated GnM scratch (Fig.&nbsp;6).
+
 <div align="center">
-  <img src="figures/sub_composer.jpeg" width=950 alt="">
-  <figcaption><strong>Fig.6</strong> The composer style assessment from the subjective listening test. We only evaluate these three composer-conditionable models as the same in objective composer evaluation. </figcaption>
+  <img src="figures/sub_composer.jpeg" width="950" alt="">
+  <figcaption><strong>Fig.&nbsp;6</strong> Listener‑chosen composer identity (two‑option forced choice).</figcaption>
 </div>
+
+---
 
 # Generation Samples
 We show some generation samples from multiple models for comparison on the music generation quality and their style similarities compared with the actual conditions:
