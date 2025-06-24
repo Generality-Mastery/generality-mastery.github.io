@@ -2,6 +2,7 @@
 layout: home
 title: From Generality to Mastery
 description: Composer‑Style Symbolic Music Generation via Large‑Scale Pre‑training
+github_link: https://github.com/AndyWeasley2004/Generality-to-Mastery
 ---
 
 # Overview  
